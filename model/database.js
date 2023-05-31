@@ -29,3 +29,7 @@ con.connect(function (err) {
 
   con.end();
 });
+
+// If you need to make any changes to the init_db.sql file - then npm run migrate to activate
+// It is much easier to change from there
+// in the future change the size, quantity and price to inter and - rather than put the currency and metrics in it

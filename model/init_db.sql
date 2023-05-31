@@ -8,3 +8,4 @@ CREATE TABLE `products`(
     `quantity` INT UNSIGNED NOT NULL,
     `price` FLOAT UNSIGNED NOT NULL, `size` VARCHAR(255) NOT NULL,PRIMARY KEY(`id`)
 );
+
