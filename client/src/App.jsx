@@ -3,24 +3,39 @@ import "./App.css";
 // if not in use/doesn't exist don't import e.g. vite logo and react logo
 
 // import child components
-import Homepage from "./components/Homepage"; // already in source so ./ then components
-import { response } from "express";
+import ProductList from "./components/ProductList"; // already in source so ./ then components
 
-function App() {
-  useEffect(() => {
-    getallJams();
-  }, []);
+import JamProfile from "./components/JamProfile";
 
-  const getallJams = () => {
-    console.log("hey");
-    // fetch("/")
-    //   .then((response) => response.json())
-    //   .then((jam) => {});
+export default function App() {
+  const [currentJamProfile, setCurrentJamProfile] = useState(null);
+
+  const showJamProfile = async (id) => {
+    //present from fetching the same jam twice
+    if (currentJamProfile && currentJamProfile.id === id) return;
+    try {
+      const result = await fetch(`http://localhost:4000/products/${id}`);
+      if (result.ok) {
+        const data = await result.json();
+        setCurrentJamProfile(data[0]);
+      } else {
+        console.log(`server error: ${result.status}`);
+        throw new Error("Something went wrong");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
-  return <div>Test</div>;
+
+  return (
+    <div>
+      <ProductList currentJamProfile={currentJamProfile} />
+      <JamProfile />
+    </div>
+  );
 }
 //1st component
-// different component not this file - homepage or prpduct list - DONE
+// different component not this file - homepage or product list - DONE
 // state for list of all jams
 // use effect to get all jams
 // map through the state to display the jams
@@ -31,7 +46,7 @@ function App() {
 // display the jam
 
 // when this is working - add the router next...
-export default App;
+// export default App;
 
 // need to do cd client
 // npm run dev... from slides

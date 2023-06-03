@@ -21,7 +21,7 @@ router.get("/", async function (req, res, next) {
 router.get("/:id", async (req, res, next) => {
   try {
     const result = await db(
-      `SELECT * FROM products WHERE id = ${req.params.id};`
+      `SELECT * FROM products WHERE id = ${req.params.id};` // use for jam profile a function
     );
     res.send(result.data);
   } catch (err) {
