@@ -6,9 +6,13 @@ import App from "../App"; // is this correct
 function ProductList() {
   // showJamProfile or currentJamProfile doesn't work here not sure why
   const [allJams, setAllJams] = useState([]); // holds all data for all jams, if you look at postman you will see the data is in an array []
-
-  const showJamProfile = (id) => {
-    console.log(id);
+  const [showJamProfile, setShowJamProfile] = useState(false);
+  // const showJamProfile = (id) => {
+  //   jam.id;
+  //   console.log(id, "test");
+  // }; // works on console
+  const handleClick = () => {
+    setShowJamProfile(!showJamProfile);
   };
 
   useEffect(() => {
@@ -27,30 +31,40 @@ function ProductList() {
       })
       .catch((error) => {
         console.log(error);
-      }); //
+      });
   };
 
   return (
     <div>
-      <div className="text-bg-warning p-3">Product List</div>
-      Testing
+      <div className="text-bg-warning p-3">Jiggy Jams</div>
+      <p>
+        Calling all music lovers! Are you ready to groove and jam to the rhythm
+        of delicious flavors? Look no further than JiggyJams, your one-stop
+        online shop for jammin' goodness! 🎶 Get ready to tantalize your taste
+        buds with a symphony of fruity sensations that will have you dancing in
+        your kitchen. From classic melodies like strawberry and blueberry to
+        funky fusions like pineapple and mango, JiggyJams has got your jam
+        cravings covered. So join the jam revolution and let the tasty beats of
+        JiggyJams transport you to a whole new level of fruity euphoria!
+      </p>
       <div className="row">
         {allJams.map((jam) => (
-          <span onClick={() => handleClick((key = jam.id))}>
-            <div className="col-4 p-4" key={jam.id}>
-              <div className="card" style={{ width: "18rem" }}>
-                <img src={jam.image} className="card-img-top rounded" />
-                <div className="card-body">
-                  <p className="card-text">{jam.name}</p>
-                  <p className="card-text">{jam.description}</p>
-                  <p className="card-text">Ingredients: {jam.ingredients}</p>
-                  <p className="card-text">Quantity: {jam.quantity}</p>
-                  <p className="card-text">£ {jam.price}</p>
-                  <p className="card-text">{jam.size} grams</p>
-                </div>
+          // <span onClick={() => handleClick((key = jam.id))}> //doesn't work returns back to normal grid
+          <div className="col-4 p-4" key={jam.id}>
+            <div className="card" style={{ width: "18rem" }}>
+              <img src={jam.image} className="card-img-top rounded" />
+              <div className="card-body">
+                <p className="card-text">{jam.name}</p>
+                <p className="card-text">{jam.description}</p>
+                <p className="card-text">Ingredients: {jam.ingredients}</p>
+                <p className="card-text">Quantity: {jam.quantity}</p>
+                <p className="card-text">£ {jam.price}</p>
+                <p className="card-text">{jam.size} grams</p>
+                <button onClick={handleClick}>View More</button>
               </div>
             </div>
-          </span>
+          </div>
+          // </span> // removed to return to a normal grid
         ))}
       </div>
     </div>
