@@ -52,13 +52,12 @@ export default function App() {
           </li>
         </ul>
       </nav>*/}
-      <ProductList currentJamProfile={currentJamProfile} />
-      <JamProfile />
-      {/* // not needed until I workout how to do with cards etc - not clear
+      {/* <ProductList /> */}
+
       <Routes>
-        // <Route path="/" element={<ProductList />}></Route>
-        // <Route path="/product" element={<JamProfile />}></Route>
-      </Routes> */}
+        <Route path="/products" element={<ProductList />}></Route>
+        <Route path="/products/:id" element={<JamProfile />}></Route>
+      </Routes>
     </div>
   );
 }

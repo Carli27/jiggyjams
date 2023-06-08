@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react"; // this  isn't working
 import App from "../App"; // is this correct
+import { Link } from "react-router-dom"; // need to import the link
 
 // can't pass a prop that doesn't exist - only in the brackets () not the body of the function//
 
 function ProductList() {
   // showJamProfile or currentJamProfile doesn't work here not sure why
   const [allJams, setAllJams] = useState([]); // holds all data for all jams, if you look at postman you will see the data is in an array []
-  const [showJamProfile, setShowJamProfile] = useState(false);
   // const showJamProfile = (id) => {
   //   jam.id;
   //   console.log(id, "test");
   // }; // works on console
-  const handleClick = () => {
-    setShowJamProfile(!showJamProfile);
-  };
 
   useEffect(() => {
     // always runs when your pages loads  - e.g. allJams function
@@ -60,7 +57,9 @@ function ProductList() {
                 <p className="card-text">Quantity: {jam.quantity}</p>
                 <p className="card-text">£ {jam.price}</p>
                 <p className="card-text">{jam.size} grams</p>
-                <button onClick={handleClick}>View More</button>
+                <Link to={`/products/${jam.id}`}>
+                  <button>View More</button>
+                </Link>
               </div>
             </div>
           </div>
