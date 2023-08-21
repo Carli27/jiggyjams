@@ -1,4 +1,4 @@
--u# jiggyjams
+#jiggyjams
 
 This is a full stack app to show the products available at jiggy jams and eventually will be a website people can buy from. Jiggy jams signature jam is a Scotch Bonnet Chilli Jam that can be a condiment, sauce, with cheese or incoporated into a marinade to give a spicy kick if that's your jam (see what I did there)
 
