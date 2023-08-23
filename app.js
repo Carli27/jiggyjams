@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 //dont this right now
+//this is where I specify the route on the back end
 app.use("/products", productsRouter);
 app.use("/api/users", usersRouter);
 
