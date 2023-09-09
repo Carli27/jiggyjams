@@ -14,12 +14,14 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "/client/dist"))); // need for deploying
 //dont this right now
 //this is where I specify the route on the back end
 app.use("/products", productsRouter);
 app.use("/api/users", usersRouter);
-
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/dist/index.html")); // added for deployment
+});
 module.exports = app;
 
 // this example works for mysql
