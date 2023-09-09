@@ -42,3 +42,5 @@ Ensure you created the env in the project folder and not a sub folder or the fil
 
 - Run `npm start` in project directory to start the Express server on port 4000
 - In another terminal, in the project directory do `cd client` and run `npm run dev` to start the client in development mode with hot reloading in port 5173 (front end)
+
+-test
