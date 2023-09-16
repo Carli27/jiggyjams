@@ -1,0 +1,20 @@
+/* Homepage.css */
+
+.container {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+/* Center button vertically and horizontally */
+.d-flex.justify-content-center.align-items-center {
+    height: 100vh;
+    /* This ensures the button is centered in the viewport */
+}
