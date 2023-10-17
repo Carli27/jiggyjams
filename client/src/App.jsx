@@ -8,7 +8,7 @@ import ProductList from "./components/ProductList"; // already in source so ./ t
 import JamProfile from "./components/JamProfile";
 
 import { Routes, Route, Link } from "react-router-dom"; // need import route as well as main.jsx file
-import Homepage from "./components/Homepage";
+import Homepage from "./components/pages/Homepage";
 
 // installed: npm install --save react-responsive don't know which to apply
 // https://www.browserstack.com/guide/how-to-make-react-app-responsive#:~:text=To%20use%20the%20react%2Dresponsive,to%20install%20it%20using%20npm.&text=Once%20the%20library%20is%20installed,it%20into%20our%20React%20component.&text=This%20React%20component%20uses%20the,orientation%20of%20the%20user's%20device.
